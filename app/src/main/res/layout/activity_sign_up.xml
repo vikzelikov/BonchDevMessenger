@@ -4,6 +4,105 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.SignUpActivity">
+    tools:context=".ui.activities.SignUpActivity"
+    android:background="#363636"
+    >
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <TextView
+            android:id="@+id/yourid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:text="Sign Up" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp">
+
+        <EditText
+            android:id="@+id/login_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="270dp"
+            android:hint="Login"
+            android:textColor="@android:color/holo_red_dark"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:textCursorDrawable="@color/yellow"/>
+
+        <EditText
+            android:id="@+id/email_sign_up_et"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="270dp"
+            android:hint="E-mail"
+            android:textColor="@android:color/holo_red_dark"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:textCursorDrawable="@color/yellow"/>
+
+        <EditText
+            android:id="@+id/password_sign_up_et"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="270dp"
+            android:hint="Password"
+            android:textColor="@android:color/holo_red_dark"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:textCursorDrawable="@color/yellow"
+            android:inputType="textPassword"/>
+
+        <EditText
+            android:id="@+id/password_confirm_et"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="270dp"
+            android:hint="Conform password"
+            android:textColor="@android:color/holo_red_dark"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:textCursorDrawable="@color/yellow"
+            android:inputType="textPassword"/>
+
+
+        <Button
+            android:id="@+id/complete_sign_up_button"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:background = "@drawable/roundedbutton"
+            android:width="150dp"
+            />
+
+
+
+
+    </LinearLayout>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
