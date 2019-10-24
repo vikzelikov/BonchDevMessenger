@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.SignInActivity"
-    android:background="#363636"
+    tools:context="activities.SignInActivity"
+    android:background="#d9d9d9"
     >
 
     <LinearLayout
@@ -48,7 +48,7 @@
         app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
         app:layout_constraintStart_toStartOf="@+id/linearLayout2"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="120dp">
+        android:layout_marginTop="40dp">
 
         <EditText
             android:id="@+id/email_sign_in_edit_text"
@@ -62,7 +62,6 @@
 
         <EditText
             android:id="@+id/password_sign_in_edit_text"
-            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:width="270dp"
@@ -71,27 +70,36 @@
             android:backgroundTint="@android:color/holo_red_dark"
             android:textCursorDrawable="@color/yellow"
             android:inputType="textPassword"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <Button
             android:id="@+id/sign_in_button"
-            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"
-            android:background = "@drawable/roundedbutton"
+            android:layout_marginTop="15dp"
             android:width="150dp"
-            />
+            android:background="@drawable/roundedbutton"
+            android:text="Login" />
 
         <Button
             android:id="@+id/sign_up_button"
-            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:background = "@drawable/roundedbutton"
+            android:layout_marginTop="10dp"
             android:width="150dp"
-            />
+            android:background="@drawable/roundedbutton"
+            android:text="Sign Up" />
 
 
     </LinearLayout>
