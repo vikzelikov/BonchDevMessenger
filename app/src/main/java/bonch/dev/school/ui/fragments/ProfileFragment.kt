@@ -7,11 +7,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import bonch.dev.school.ui.R
+import bonch.dev.school.ui.activities.MainAppActivity
 
 class ProfileFragment: Fragment() {
     private lateinit var confirmEmail: Button
     private lateinit var changePassword: Button
     private lateinit var logout: Button
+    private val passwordFragment = PasswordFragment()
+
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -37,7 +40,7 @@ class ProfileFragment: Fragment() {
         }
 
         changePassword.setOnClickListener{
-
+            passwordFragment.show((activity as MainAppActivity).getFM(), "Dialog")
         }
 
         logout.setOnClickListener{
