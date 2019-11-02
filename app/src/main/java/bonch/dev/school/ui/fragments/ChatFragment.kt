@@ -32,16 +32,10 @@ class ChatFragment:Fragment() {
         val view = inflater.inflate(R.layout.fragment_chat,container,false)
         init(view)
         setListeners()
-        //set TEST data 20 message for example
-        for (i in 1..20) {
-            addMessage("Some text", Date(), false)
-        }
 
-        //scroll to bottom
+        val dataMessages: MutableList<Message> = receiveMessagesFromServer()
+        setDataInRecyclerView(dataMessages)
         scrollBottom()
-        messageRecycler.layoutManager = layoutManager
-        //set data in recycler
-        messageRecycler.adapter = MessageRecyclerItems(messageList)
         return view
     }
 
@@ -64,12 +58,48 @@ class ChatFragment:Fragment() {
         }
     }
 
+    private fun setDataInRecyclerView(dataMessages: MutableList<Message>){
+        messageList.addAll(dataMessages)
+        messageRecycler.layoutManager = layoutManager
+        messageRecycler.adapter = MessageRecyclerItems(messageList)
+    }
+
     private fun addMessage(message: String, date: Date, isUser: Boolean){
         messageList.add(Message(1, message, date, isUser))
+        if(isUser){
+            //TODO
+            //send to server for save
+            //сообщения собеседника не надо сохранять в базу, тк они уже сохранены
+        }
+    }
+
+    private fun receiveMessagesFromServer(): MutableList<Message>{
+        /* TODO
+        * Запросить у сервера первые 20 сообщений для вывода
+        * ??? Если доскроллил до верха экрана, то запросить следующие 20 сообщений ???
+        * */
+
+        //FOR EXAMPLE
+        val dataMessages: MutableList<Message> = mutableListOf()
+        for (i in 1..20) {
+            //разделим для наглядности
+            if(i%2 == 0){
+                dataMessages.add(Message(1,"This is my text!", Date(), true))
+            }else{
+                dataMessages.add(Message(1,"The text of other user", Date(), false))
+            }
+        }
+        return dataMessages
+    }
+
+    private fun receiveOtherMessage(){
+        //TODO
+        //method call if other user send message
+        //add to messageList for output
     }
 
     private fun scrollBottom(){
-        messageRecycler.scrollToPosition(MessageRecyclerItems(messageList).itemCount-1)
+        messageRecycler.scrollToPosition(messageList.count()-1)
     }
 
     override fun onPause() {
