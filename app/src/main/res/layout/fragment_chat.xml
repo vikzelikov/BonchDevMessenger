@@ -9,7 +9,17 @@
     android:background="@drawable/fon"
     android:id="@+id/chat_fragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/message_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:reverseLayout="true"
+        app:stackFromEnd="true" />
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,7 +30,8 @@
             android:id="@+id/message_et"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="100"/>
+            android:layout_weight="100"
+            android:maxHeight="250dp"/>
 
         <ImageButton
             android:id="@+id/send_message_button"
