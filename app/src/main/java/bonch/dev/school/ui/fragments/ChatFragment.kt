@@ -121,8 +121,10 @@ class ChatFragment:Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        listState = savedInstanceState?.getParcelable("RECYCLER")
-        messageRecycler.layoutManager?.onRestoreInstanceState(listState)
+        if(savedInstanceState != null){
+            listState = savedInstanceState?.getParcelable("RECYCLER")
+            messageRecycler.layoutManager?.onRestoreInstanceState(listState)
+        }
     }
 
 
