@@ -29,22 +29,13 @@ class ChatFragment:Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        if(savedInstanceState != null){
-        println("ХОРОЩО")
-    }
         val view = inflater.inflate(R.layout.fragment_chat, container,false)
         init(view)
         setListeners()
-        if(savedInstanceState != null){
-            println("ХОРОЩО")
-        }
-        retainInstance = false
+
         val dataMessages: MutableList<Message> = receiveMessagesFromServer()
         setDataInRecyclerView(dataMessages)
         scrollBottom()
-        if(savedInstanceState != null){
-            println("ХОРОЩО")
-        }
         return view
     }
 
@@ -125,18 +116,15 @@ class ChatFragment:Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelable("KEY", messageRecycler.layoutManager?.onSaveInstanceState())
+        outState.putParcelable("RECYCLER", messageRecycler.layoutManager?.onSaveInstanceState())
     }
 
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        if(savedInstanceState != null){
-            println("ЗАЕБИСЬ")
-        }else{
-            println("ПИЗДЕЦ")
-        }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        listState = savedInstanceState?.getParcelable("RECYCLER")
+        messageRecycler.layoutManager?.onRestoreInstanceState(listState)
     }
+
 
 
 }
