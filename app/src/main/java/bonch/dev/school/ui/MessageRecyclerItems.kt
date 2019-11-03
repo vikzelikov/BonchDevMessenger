@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import bonch.dev.school.R
 import bonch.dev.school.models.Message
+import java.text.SimpleDateFormat
 
 class MessageRecyclerItems(val messageList: MutableList<Message>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -33,8 +34,9 @@ class MessageRecyclerItems(val messageList: MutableList<Message>): RecyclerView.
         val messageTextView: TextView = view.findViewById(R.id.user_message_text)
         val dateTextView: TextView=view.findViewById(R.id.user_message_date)
         fun bind(position: Int){
+            val date = SimpleDateFormat("HH:mm").format(messageList[position].sentDate)
             messageTextView.text = messageList[position].messageText
-            dateTextView.text = messageList[position].sentDate.toString()
+            dateTextView.text = date
         }
     }
 
@@ -43,9 +45,10 @@ class MessageRecyclerItems(val messageList: MutableList<Message>): RecyclerView.
         val dateTextView: TextView = view.findViewById(R.id.other_message_date)
         val nameTextView: TextView = view.findViewById(R.id.other_message_name)
         fun bind(position: Int){
+            val date = SimpleDateFormat("HH:mm").format(messageList[position].sentDate)
             messageTextView.text = messageList[position].messageText
-            dateTextView.text = messageList[position].sentDate.toString()
-            nameTextView.text = "Other User"
+            dateTextView.text = date
+            nameTextView.text = "Nikita"
         }
     }
 
